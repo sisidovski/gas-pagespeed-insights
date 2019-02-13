@@ -1,0 +1,29 @@
+{
+  "name": "gas-pagespeed",
+  "version": "1.0.0",
+  "description": "Run PageSpeed Insights API with Google Apps Script, collect Lighthouse performance metrics to Google Spreadsheet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "push": "npx clasp push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sisidovski/gas-pagespeed.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sisidovski/gas-pagespeed/issues"
+  },
+  "homepage": "https://github.com/sisidovski/gas-pagespeed#readme",
+  "devDependencies": {
+    "@google/clasp": "^2.0.1",
+    "dotenv": "^6.2.0",
+    "prettier": "1.16.4",
+    "tslint": "^5.12.1"
+  },
+  "dependencies": {
+    "@types/google-apps-script": "0.0.36"
+  }
+}
