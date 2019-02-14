@@ -46,6 +46,7 @@ const runTest = () => {
     scoreSheet.insertRowAfter(scoreSheet.getLastRow());
     const range = scoreSheet.getRange(scoreSheet.getLastRow() + 1, 1, 1, rowValues.length);
     range.setValues([rowValues])
+    Utilities.sleep(500);
   });
 }
 
