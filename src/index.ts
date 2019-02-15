@@ -20,7 +20,6 @@ const getTestSites = () => {
 }
 
 const runTest = () => {
-  const scoreSheet = getSpreadSheet('scores');
   const API_KEY = getPSIAPIKey();
   const date = Utilities.formatDate(new Date(), 'Asia/Tokyo', 'yyyy/MM/dd HH:mm')
 
@@ -43,6 +42,7 @@ const runTest = () => {
       metrics.fcp,
       metrics.tti
     ];
+    const scoreSheet = getSpreadSheet('scores');
     scoreSheet.insertRowAfter(scoreSheet.getLastRow());
     const range = scoreSheet.getRange(scoreSheet.getLastRow() + 1, 1, 1, rowValues.length);
     range.setValues([rowValues])
