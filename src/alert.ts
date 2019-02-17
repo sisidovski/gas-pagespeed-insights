@@ -1,23 +1,26 @@
-const sendEmail = sheet => {
+const sendEmail = (sheet, message) => {
   const emails = sheet.getRange(2, 2, 1).getValue();
-  MailApp.sendEmail(emails, 'PSI Perf Budget Alert', '');
+  MailApp.sendEmail(emails, 'PSI Perf Budget Alert', message);
 };
 
-const sendToSlack = sheet => {
+const sendToSlack = (sheet, message) => {
   const url = sheet.getRange(3, 2, 1).getValue();
-  const payload = {
-    text : 'aaaa'
-  };
-  const options = {
+  UrlFetchApp.fetch(url, {
     method: 'post',
-    payload: payload
-  };
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    payload: `{"text": "${message}"}`
+  });
+};
 
-  UrlFetchApp.fetch(url, options);
+const createMessage = () => {
+  return 'foobarbaz';
 };
 
 function sendAlert() {
   const sheet = getSpreadSheet('settings');
-  sendEmail(sheet);
-  sendToSlack(sheet);
+  const message = createMessage();
+  sendEmail(sheet, message);
+  sendToSlack(sheet, message);
 }

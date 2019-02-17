@@ -53,6 +53,7 @@ const runTest = () => {
 
 function main() {
   runTest();
+  sendAlert();
   // if (result.hasBudgetAlert) {
   //   sendAlert();
   // }
