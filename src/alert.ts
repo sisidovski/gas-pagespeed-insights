@@ -14,13 +14,9 @@ const sendToSlack = (sheet, message) => {
   });
 };
 
-const createMessage = () => {
-  return 'foobarbaz';
-};
-
 function sendAlert(messages) {
   const sheet = getSpreadSheet('settings');
-  const formatted = messages.join("\n");
+  const formatted = messages.join('\n');
   sendEmail(sheet, formatted);
   sendToSlack(sheet, formatted);
 }
