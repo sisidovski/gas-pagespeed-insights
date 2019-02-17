@@ -34,15 +34,15 @@ function getPSIAPIKey() {
 
 function fetchAPI(key: string, url: string) {
   var api = getAPIURL(key, url);
-  Logger.log(api);
+  Logger.log(api)
   var res = UrlFetchApp.fetch(api, { muteHttpExceptions: true });
   return JSON.parse(res.getContentText());
-}
+};
 
 function extractMetrics(response) {
   var lhResult = response.lighthouseResult;
+  // Sometimes Lighthouse test fails. Skip the test.
   if (!lhResult) {
-    // Logger.log(response)
     return null;
   }
   var categories = lhResult.categories;
@@ -58,4 +58,4 @@ function extractMetrics(response) {
   result.tti = parse(audits['interactive'].displayValue);
 
   return result;
-}
+};

@@ -27,7 +27,7 @@ const getTestSites = () => {
 
 const makeAlertMessage = (site, metrics, proceededMetric) => {
   const head = `${site.name}<${site.label}>`;
-  const message = `${proceededMetric} proceeded the budget (${site.budget[proceededMetric]}). Now ${proceededMetric} is ${metrics[proceededMetric]}.`
+  const message = `${proceededMetric} has proceeded the budget! Last time ${proceededMetric} was ${metrics[proceededMetric]}sec, it should be under ${site.budget[proceededMetric]}sec.`
   return `${head}: ${message}`;
 }
 
@@ -66,6 +66,7 @@ const runTest = () => {
         metrics
       };
     })
+    .filter(obj => obj)
     .reduce((prev, current) => {
       const {site, metrics} = current;
       const budget = site.budget;
