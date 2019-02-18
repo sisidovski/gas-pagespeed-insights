@@ -1,2 +1,3 @@
-# gas-pagespeed
-Run PageSpeed Insights API with Google Apps Script, collect Lighthouse and CrUX metrics to Google Spreadsheet/
+# gas-pagespeed-insights
+
+Google Apps Script for PageSpeed Insights API, collect Lighthouse metrics to Google Spreadsheet.
